@@ -1,16 +1,18 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'gravatar_image_tag', '~> 1.1.3'
 
 group :development do
   gem 'rspec-rails', '~> 2.13.0'
   gem 'annotate', '~> 2.5.0'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -18,6 +20,11 @@ group :test do
   gem 'webrat','~> 0.7.3'
   gem 'spork','~> 0.9.2'  
   gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 
