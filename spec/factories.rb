@@ -1,0 +1,12 @@
+# By using ':user' symbol, we do than
+# Factory Girl simulates a User model
+
+FactoryGirl.define do
+  factory :user do |user|
+    user.name                   "Romain Michel"
+    user.email                  "michemuch@example.com"
+    user.password               "foobar"
+    user.password_confirmation  "foobar"
+  end
+end
+
