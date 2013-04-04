@@ -124,7 +124,7 @@ describe User do
 
     describe "Authenticate method" do
 
-      it "should return nil if combination email/password is wrong" do
+      it "should return nil if email/password combination is wrong" do
         wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
         wrong_password_user.should be_nil
       end
@@ -132,6 +132,11 @@ describe User do
       it "should return nil when an email doesn't match any users" do
         nonexistant_user = User.authenticate("bar@foo.com", @attr[:password])
         nonexistant_user.should be_nil
+      end
+
+      it "should return user if email/password combination matches" do
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user.should == @user
       end
     end
 
