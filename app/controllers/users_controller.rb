@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     else
       @title = "Register"
       render 'new'
+      @user.password = ""
     end
   end
 end
