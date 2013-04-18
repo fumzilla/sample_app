@@ -69,6 +69,14 @@ describe UsersController do
       get :show, :id => @user
       assigns(:user).should == @user
     end
+
+    it "should display users's micro-messages" do
+      mp1 = FactoryGirl.create(:micropost, :user => @user, :content => "Foo bar")
+      mp2 = FactoryGirl.create(:micropost, :user => @user, :content => "Baz quux")
+      get :show, :id => @user
+      response.should have_selector("span.content", :content => mp1.content )
+      response.should have_selector("span.content", :content => mp2.content )
+    end
   end
 
   describe "GET 'new'" do

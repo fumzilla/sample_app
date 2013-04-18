@@ -12,7 +12,7 @@ describe "Users" do
           fill_in "Name",                     :with => ""
           fill_in "Email",                    :with => ""
           fill_in "Password",                 :with => ""
-          fill_in "Password confirmation",    :with => ""
+          fill_in "Confirm password",    :with => ""
           click_button
           response.should render_template('users/new')
           response.should have_selector("div#error_explanation")
@@ -28,7 +28,7 @@ describe "Users" do
           fill_in "Name",                     :with => "Example User"
           fill_in "Email",                    :with => "user@example.org"
           fill_in "Password",                 :with => "foobar"
-          fill_in "Password confirmation",    :with => "foobar"
+          fill_in "Confirm password",    :with => "foobar"
           click_button
           response.should have_selector("div.flash.success", :content => "Welcome")
           response.should render_template('users/show')
